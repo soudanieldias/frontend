@@ -1,8 +1,13 @@
+import { useState } from 'react';
 import './App.css';
 import logo from './images/logo.png';
 import BG from './images/BG.png';
 import room from './images/02.jpg';
-import { useState } from 'react';
+import image01 from './images/image_01.png';
+import image02 from './images/image_02.png';
+import image03 from './images/image_03.png';
+import coopersIcon from './images/icone-coopers.png';
+import tatiana from './images/tatiana.png';
 
 function App() {
   const [pendingList, setPendingList ] = useState(['a', 'b', 'c', 'd', 'e', 'f']);
@@ -29,29 +34,35 @@ function App() {
             <p className='text-one'>Organize</p>
             <p className='text-two'>your daily jobs</p>
             <p className='text-three'>The only way to get things done</p>
-            <button className='todo-button' >Go to To-do list</button>
+            <button className='todo-button' >
+              <a href='#info-todo-content'>Go to To-do list</a>
+            </button>
           </div>
           <div className='slide-content'>
             <img className='room-img' alt='room' src={room} />
             <img className='bg-img' src={BG} alt='Coopers logo background' />
           </div>
         </div>
-        <div className='info-todo-content'>
+        <div id='info-todo-content' className='info-todo-content'>
           <h3>To-do List</h3>
           <div className='line-div'></div>
           <p>Drag and drop to set your main priorities, check</p>
           <p>when done and create what's new.</p>
         </div>
-        <div className='todo-content'>
+        <div id='todo-content' className='todo-content'>
           <div className='list-pending'>
             <h3>To-Do</h3>
             <p>Take a breath.</p>
             <p>Start doing.</p>
             <div className='pending-items-list'>
               <ul>
-                { pendingList.map((pendingItem, index) => (<li key={index}>{pendingItem}</li>))}
+                { pendingList.map((pendingItem, index) => (
+                  <li key={index}>
+                    <input type='checkbox' /> {pendingItem}
+                  </li>
+                ))}
               </ul>
-              <input type='button' onClick={ () => { setPendingList([]) } } value='Erase All'/>
+              <input type='button' onClick={ () => { setPendingList([]) } } className='erase-all' value='erase all'/>
             </div>
           </div>
           <div className='list-done'>
@@ -73,14 +84,57 @@ function App() {
             }
             <div className='done-items-list'>
               <ul>
-                { doneList.map((doneItem, index) => (<li key={index}>{doneItem}</li>))}
+                { doneList.map((doneItem, index) => (
+                  <li key={index}>
+                    <input type='checkbox' /> {doneItem}
+                  </li>
+                ))}
               </ul>
-              <input type='button' onClick={ () => { setDoneList([]) } } value='Erase All' />
+              <input type='button' onClick={ () => { setDoneList([]) } } className='erase-all' value='erase all' />
             </div>
           </div>
         </div>
+        <div className='good-things'>
+          <div className='good-things-container'>
+            <p className='p-title'>good things</p>
+            <div className='cards-container'>
+              <div className='card-infos'>
+                <img src={image01} alt=''/>
+                <img src={coopersIcon} className='coopers-icon' alt='coopers icon'/>
+                <p className='function-p'>function</p>
+                <div className='description-p'>Organize your daily job enhance your life performance</div>
+                <p className='readmore'>read more</p>
+              </div>
+              <div className='card-infos'>
+                <img src={image02} alt=''/>
+                <img src={coopersIcon} className='coopers-icon' alt='coopers icon'/>
+                <p className='function-p'>function</p>
+                <div className='description-p'>Mark one activity as done makes your brain understands the power of doing.</div>
+                <p className='readmore'>read more</p>
+              </div>
+              <div className='card-infos'>
+                <img src={image03} alt=''/>
+                <img src={coopersIcon} className='coopers-icon' alt='coopers icon'/>
+                <p className='function-p'>function</p>
+                <div className='description-p'>Careful with missunderstanding the difference between a list of things and a list of desires.</div>
+                <p className='readmore'>leia mais</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='contact-container'>
+          <div className='detail-form'></div>
+          <img className='contact-picture' src={tatiana} alt='tatiana' />
+          <div className='contact-form'>
+          </div>
+        </div>
       </div>
-      <footer></footer>
+      <div className='footer'>
+        <p>Need help?</p>
+        <p>coopers@coopers.pro</p>
+        <h5>© 2021 Coopers. All rights reserved.</h5>
+        <div className='footer-bar'></div>
+      </div>
     </div>
   );
 }
