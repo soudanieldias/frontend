@@ -188,7 +188,7 @@ ul > * {
   margin-top: 3px;
 }
 
-input {
+.todo-content input {
   background-color: black;
   border-radius: 10px;
   color: wheat;
@@ -295,11 +295,106 @@ input {
 .contact-picture {
   border-radius: 100px;
   height: 190px;
+  margin-top: 30px;
+  margin-bottom: -70px;
   width: 190px;
+  z-index: -1;
 }
 
 .contact-form {
-  background-color: antiquewhite;
+  align-items: center;
+  /* background-color: antiquewhite; */
+  /* border: 1px solid black; */
+  box-shadow: 1px 1px #505050;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  margin-top: 10px;
+  width: 400px;
+}
+
+.contact-form-header {
+  /* align-items:flex-start; */
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  margin-left: 60px;
+  margin-top: 87px;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.contact-form > * {
+  width: 90%;
+}
+
+.form-header-icon {
+  background: #46BD62;
+  justify-content: flex-start;
+  height: 30px;
+  margin-right: 24px;
+  width: 30px;
+}
+
+.form-header-icon > img {
+  height: 15px;
+  margin: 7.5px;
+  width: 15px;
+}
+
+.tatiana-image {
+  position: absolute;
+  z-index: -1;
+}
+
+.detail-form {
+  background: #46BD62;
+  height: 20px;
+  margin-top: -100px;
+  position: absolute;
+  width: 166px;
+  z-index: -2;
+}
+
+.personal-contact {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0px;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+.telephone {
+  margin-left: 5px;
+}
+
+.message {
+  min-height: 50px;
+}
+
+input[name='message']::placeholder {
+  display: flex;
+  text-align: left;
+}
+
+.form-fields {
+  border: 1px solid #06152B;
+  height: 30px;
+}
+
+.form-fields::placeholder {
+  margin: 10px;
+  text-indent: 10px;
+}
+
+.send-button {
+  background: #46BD62;
+  color: white;
+  font-family: 'Montserrat';
+  height: 52px;
+  margin: 10px 0px;
 }
 
 .footer {
@@ -319,8 +414,9 @@ input {
 }
 
 .footer > * {
-  transform: skewY(1deg);
+  color: white;
   margin-bottom: 10px;
+  transform: skewY(1deg);
 }
 
 .footer-bar {
@@ -351,6 +447,7 @@ input {
 
   .todo-content {
     flex-direction: column;
+    overflow-x: hidden;
   }
 
   .todo-content > * {

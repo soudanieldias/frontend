@@ -8,6 +8,7 @@ import image02 from './images/image_02.png';
 import image03 from './images/image_03.png';
 import coopersIcon from './images/icone-coopers.png';
 import tatiana from './images/tatiana.png';
+import vector from './images/Vector.png';
 
 function App() {
   const [pendingList, setPendingList ] = useState(['a', 'b', 'c', 'd', 'e', 'f']);
@@ -123,15 +124,43 @@ function App() {
           </div>
         </div>
         <div className='contact-container'>
-          <div className='detail-form'></div>
           <img className='contact-picture' src={tatiana} alt='tatiana' />
-          <div className='contact-form'>
-          </div>
+          <form className='contact-form'>
+            <div className='contact-form-header'>
+              <div className='detail-form'></div>
+              <div className='form-header-icon'>
+                <img src={vector} alt="vector form" />
+              </div>
+              <div>
+                <p>GET IN</p>
+                <p>TOUCH</p>
+              </div>
+            </div>
+            <label for='name'>
+              Your name
+            </label>
+            <input type='text' className='form-fields' name='name' placeholder='type your name here...' />
+            <div className='personal-contact'>
+              <label for='email'>
+                Email*
+                <input type='email' className='form-fields' name='email' placeholder='example@example.com' />
+              </label>
+              <label className='telephone' for='telephone'>
+                Telephone*
+                <input type='tel' className='form-fields' name='telephone' placeholder='(  ) ____-____'/>
+              </label>
+            </div>
+            <label for='message'>
+              Message
+            </label>
+            <input type='text' className='message' name='message' placeholder='type what you want to say to us' />
+            <input type='button' className='send-button' name='send' value="SEND NOW" />
+          </form>
         </div>
       </div>
       <div className='footer'>
         <p>Need help?</p>
-        <p>coopers@coopers.pro</p>
+        <a href='mailto:coopers@coopers.pro'>coopers@coopers.pro</a>
         <h5>© 2021 Coopers. All rights reserved.</h5>
         <div className='footer-bar'></div>
       </div>
