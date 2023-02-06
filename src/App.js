@@ -11,8 +11,27 @@ import tatiana from './images/tatiana.png';
 import vector from './images/Vector.png';
 
 function App() {
-  const [pendingList, setPendingList ] = useState(['a', 'b', 'c', 'd', 'e', 'f']);
+  // const [pendingList, setPendingList ] = useState(['a', 'b', 'c', 'd', 'e', 'f']);
   const [doneList, setDoneList ] = useState(['g', 'h', 'i', 'j', 'k', 'l']);
+  const [pendingList, setPendingList ] = useState([
+    { finished: false, task: 'a' },
+    { finished: false, task: 'b' },
+    { finished: false, task: 'c' },
+    { finished: false, task: 'd' },
+    { finished: false, task: 'e' },
+  ]);
+
+  const handleKeyPress = (event) => {
+    if(event.key === 'Enter') {
+      const newTodoValue = event.target.value;
+      console.log('Adding new todo: ', newTodoValue);
+      
+      const newTodoList = [...pendingList, { finished: false, task: newTodoValue }];
+      setPendingList(newTodoList);
+      event.target.value = '';
+
+    }
+  }
 
   return (
     <div className="App">
@@ -57,11 +76,17 @@ function App() {
             <p>Start doing.</p>
             <div className='pending-items-list'>
               <ul>
-                { pendingList.map((pendingItem, index) => (
-                  <li key={index}>
-                    <input type='checkbox' /> {pendingItem}
-                  </li>
-                ))}
+                <li>
+                  <input type="checkbox" name="" className='checkbox-newtodo'/>
+                  <input type="text" name="new-todo" placeholder='this is a new task' onKeyDown={ (event) => ( handleKeyPress(event) ) } />
+                </li>
+                { 
+                  pendingList.map((itemList, index) => (
+                    <li key={index}>
+                      <input type='checkbox' checked={ itemList.finished }/> {itemList.task}
+                    </li>
+                  ))
+                }
               </ul>
               <input type='button' onClick={ () => { setPendingList([]) } } className='erase-all' value='erase all'/>
             </div>
@@ -133,27 +158,27 @@ function App() {
               </div>
               <div>
                 <p>GET IN</p>
-                <p>TOUCH</p>
+                <b>TOUCH</b>
               </div>
             </div>
-            <label for='name'>
+            <label htmlFor='name'>
               Your name
             </label>
             <input type='text' className='form-fields' name='name' placeholder='type your name here...' />
             <div className='personal-contact'>
-              <label for='email'>
+              <label htmlFor='email'>
                 Email*
                 <input type='email' className='form-fields' name='email' placeholder='example@example.com' />
               </label>
-              <label className='telephone' for='telephone'>
+              <label className='telephone' htmlFor='telephone'>
                 Telephone*
                 <input type='tel' className='form-fields' name='telephone' placeholder='(  ) ____-____'/>
               </label>
             </div>
-            <label for='message'>
-              Message
+            <label htmlFor='message'>
+              Message*
             </label>
-            <input type='text' className='message' name='message' placeholder='type what you want to say to us' />
+            <textarea type='text' className='message' name='message' placeholder='Type what you want to say to us'></textarea>
             <input type='button' className='send-button' name='send' value="SEND NOW" />
           </form>
         </div>

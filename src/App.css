@@ -5,6 +5,7 @@
 
 .body {
   background-color: #F2F2F2;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .header {
@@ -16,8 +17,6 @@
 
 .logo-content {
   align-items: center;
-  /* background-color: black; */
-  /* color: white; */
   display: flex;
   justify-content: center;
   margin-left: 80px;
@@ -56,8 +55,6 @@
   position: absolute;
   top: 0;
   right: 0;
-  /* width: 800px; */
-  /* height: 1000px; */
   width: 55%;
   max-width: 650px !important;
   z-index: 0;
@@ -191,7 +188,15 @@ ul > * {
 .todo-content input {
   background-color: black;
   border-radius: 10px;
-  color: wheat;
+  color: white;
+  font-family: 'Montserrat';
+}
+
+input[name="new-todo"] {
+  background: white;
+  border: none;
+  color: black;
+  padding-left: 10px;
 }
 
 .good-things {
@@ -212,8 +217,9 @@ ul > * {
 
 .p-title {
   color: white;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 40px;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 110%;
   margin-left: 80px;
   margin-top: 80px;
 }
@@ -222,10 +228,10 @@ ul > * {
   border-radius: 10px;
   display: flex;
   flex-direction: row;
-  /* justify-content: space-around; */
   margin-left: 20px;
   margin-top: 30px;
   min-width: 80vw;
+  overflow-x: auto;
 }
 
 .card-infos {
@@ -236,6 +242,7 @@ ul > * {
   height: 430px;
   text-align: center;
   margin-right: 20px;
+  margin-left: 10px;
   width: 360px;
 }
 
@@ -264,6 +271,8 @@ ul > * {
   border-radius: 16px;
   color: #9499B3;
   font-family: 'soleil';
+  font-size: 16px;
+  font-weight: 400;
   margin: 15px;
   padding: 5px;
   width: fit-content;
@@ -274,7 +283,6 @@ ul > * {
   font: 'Montserrat';
   font-family: 'Montserrat';
   font-style: normal;
-  /* font-weight: 500; */
   font-size: 18px;
   line-height: 120%;
   margin: 10px 10px;
@@ -290,12 +298,13 @@ ul > * {
   align-items: center;
   display: flex;
   flex-direction: column;
+  margin-top: 50px;
 }
 
 .contact-picture {
   border-radius: 100px;
   height: 190px;
-  margin-top: 30px;
+  margin-top: 40px;
   margin-bottom: -70px;
   width: 190px;
   z-index: -1;
@@ -303,22 +312,19 @@ ul > * {
 
 .contact-form {
   align-items: center;
-  /* background-color: antiquewhite; */
-  /* border: 1px solid black; */
   box-shadow: 1px 1px #505050;
   display: flex;
   flex-direction: column;
-  height: 400px;
+  height: 721px;
   margin-top: 10px;
-  width: 400px;
+  width: 700px;
 }
 
 .contact-form-header {
-  /* align-items:flex-start; */
   align-items: flex-start;
   display: flex;
   flex-direction: row;
-  margin-left: 60px;
+  margin-bottom: 10px;
   margin-top: 87px;
   justify-content: flex-start;
   width: 100%;
@@ -330,6 +336,7 @@ ul > * {
 
 .form-header-icon {
   background: #46BD62;
+  border-radius: 3px;
   justify-content: flex-start;
   height: 30px;
   margin-right: 24px;
@@ -351,6 +358,7 @@ ul > * {
   background: #46BD62;
   height: 20px;
   margin-top: -100px;
+  margin-left: 170px;
   position: absolute;
   width: 166px;
   z-index: -2;
@@ -362,7 +370,14 @@ ul > * {
   margin: 20px 0px;
 }
 
+.personal-contact > * {
+  width: 100%;
+}
+
 label {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Montserrat';
   margin-bottom: 5px;
 }
 
@@ -371,17 +386,23 @@ label {
 }
 
 .message {
-  min-height: 50px;
+  margin-top: 5px;
+  min-height: 140px;
+  overflow: hidden;
+  padding: 10px;
+  resize: none;
+  width: 88%;
 }
-
-input[name='message']::placeholder {
-  display: flex;
-  text-align: left;
+.message::placeholder {
+  height: 150px;
+  margin-left: 10px;
 }
 
 .form-fields {
   border: 1px solid #06152B;
-  height: 30px;
+  border-radius: 4px;
+  height: 50px;
+  text-indent: 10px;
 }
 
 .form-fields::placeholder {
@@ -391,6 +412,7 @@ input[name='message']::placeholder {
 
 .send-button {
   background: #46BD62;
+  border-radius: 4px;
   color: white;
   font-family: 'Montserrat';
   height: 52px;
